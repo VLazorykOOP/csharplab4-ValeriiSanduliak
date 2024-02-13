@@ -8,10 +8,10 @@ namespace Lab4CSharp
 {
     public class VectorByte
     {
-        protected byte[] BArray; // array of bytes
-        protected uint n; // number of elements in the vector
-        protected int codeError; // error code
-        protected static uint num_vec; // number of vectors
+        protected byte[] BArray;
+        protected uint n;
+        protected int codeError;
+        protected static uint num_vec;
 
         public VectorByte()
         {

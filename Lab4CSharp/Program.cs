@@ -79,27 +79,20 @@ namespace Lab4CSharp
         {
             try
             {
-                // Vectors using different constructors
                 VectorByte vector1 = new VectorByte();
                 VectorByte vector2 = new VectorByte(3);
                 VectorByte vector3 = new VectorByte(3, 42);
 
-                // Number of vectors
                 Console.WriteLine($"Number of vectors: {VectorByte.NumVectors()}");
 
-                // Inputting elements for the second vector
                 vector2.InputElements();
 
-                // Printing elements of the second vector
                 vector2.PrintElements();
 
-                // Setting all elements of the third vector to 99
                 vector3.SetElements(99);
 
-                // Printing elements of the third vector
                 vector3.PrintElements();
 
-                // Testing unary operations
                 Console.WriteLine("Testing Unary Operations:");
                 Console.WriteLine($"Original Vector 1: {vector1[0]}");
                 vector1++;
@@ -107,10 +100,8 @@ namespace Lab4CSharp
                 vector1--;
                 Console.WriteLine($"After -- operation: {vector1[0]}");
 
-                // Testing logical NOT operator
                 Console.WriteLine($"Vector 3 is not empty: {!vector3}");
 
-                // Testing bitwise NOT operator
                 Console.WriteLine("Testing Bitwise NOT Operator:");
                 Console.WriteLine("Original Vector 2:");
                 vector2.PrintElements();
@@ -118,7 +109,6 @@ namespace Lab4CSharp
                 Console.WriteLine("After ~ operation:");
                 notVector2.PrintElements();
 
-                // Testing binary operations
                 Console.WriteLine("Testing Binary Operations:");
 
                 Console.WriteLine("Vector 2 + Vector 3:");
@@ -161,7 +151,6 @@ namespace Lab4CSharp
                 VectorByte leftShiftVector = vector3 << 2;
                 leftShiftVector.PrintElements();
 
-                // Testing comparison operators
                 Console.WriteLine("Testing Comparison Operators:");
 
                 Console.WriteLine($"Vector 2 == Vector 3: {vector2 == vector3}");
@@ -182,10 +171,116 @@ namespace Lab4CSharp
             }
         }
 
+        static void Task3()
+        {
+            MatrixByte mat1 = new MatrixByte();
+            Console.WriteLine("Default Matrix:");
+            mat1.PrintElements();
+            Console.WriteLine();
+
+            MatrixByte mat2 = new MatrixByte(3, 3, 5);
+            Console.WriteLine("Parameterized Matrix (all elements initialized to 5):");
+            mat2.PrintElements();
+            Console.WriteLine();
+
+            MatrixByte mat3 = new MatrixByte(2, 2);
+            Console.WriteLine("Enter elements for Matrix 3:");
+            mat3.InputElements();
+            Console.WriteLine("Matrix 3:");
+            mat3.PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 3 after incrementing (++):");
+            ++mat3;
+            mat3.PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 3 after decrementing (--):");
+            --mat3;
+            mat3.PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Is Matrix 3 true? " + (mat3 ? "Yes" : "No"));
+            Console.WriteLine("Is Matrix 3 false? " + (!mat3 ? "Yes" : "No"));
+
+            Console.WriteLine("Logical NOT (!) Matrix 3:");
+            (!mat3).PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Bitwise NOT (~) Matrix 3:");
+            (~mat3).PrintElements();
+            Console.WriteLine();
+
+            MatrixByte mat4 = new MatrixByte(2, 2, 3);
+            Console.WriteLine("Matrix 4 (all elements initialized to 3):");
+            mat4.PrintElements();
+
+            Console.WriteLine("Matrix 3 + Matrix 4:");
+            (mat3 + mat4).PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 3 - Matrix 4:");
+            (mat3 - mat4).PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 3 * Matrix 4:");
+            (mat3 * mat4).PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 3 / Matrix 4:");
+            (mat3 / mat4).PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 3 % Matrix 4:");
+            (mat3 % mat4).PrintElements();
+            Console.WriteLine();
+
+            Console.WriteLine("Is Matrix 3 equal to Matrix 4? " + (mat3 == mat4));
+            Console.WriteLine("Is Matrix 3 not equal to Matrix 4? " + (mat3 != mat4));
+            Console.WriteLine("Is Matrix 3 greater than Matrix 4? " + (mat3 > mat4));
+            Console.WriteLine("Is Matrix 3 greater than or equal to Matrix 4? " + (mat3 >= mat4));
+            Console.WriteLine("Is Matrix 3 less than Matrix 4? " + (mat3 < mat4));
+            Console.WriteLine("Is Matrix 3 less than or equal to Matrix 4? " + (mat3 <= mat4));
+        }
+
         static void Main(string[] args)
         {
-            // Task1();
-            Task2();
+            Console.WriteLine("Lab 4 CSharp");
+
+            while (true)
+            {
+                Console.WriteLine("=========================================================");
+                Console.WriteLine("Select a task:");
+                Console.WriteLine("1. Task 1");
+                Console.WriteLine("2. Task 2");
+                Console.WriteLine("3. Task 3");
+                Console.WriteLine("4. Exit");
+                Console.WriteLine("=========================================================");
+                Console.Write("Enter your choice >>> ");
+                string? choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        Task1();
+                        break;
+
+                    case "2":
+                        Task2();
+                        break;
+
+                    case "3":
+                        Task3();
+                        break;
+
+                    case "4":
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Please enter a valid option.");
+                        break;
+                }
+            }
         }
     }
 }
