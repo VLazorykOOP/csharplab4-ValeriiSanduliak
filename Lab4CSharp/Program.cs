@@ -75,9 +75,117 @@ namespace Lab4CSharp
             Console.WriteLine("------------------------------------------------");
         }
 
+        static void Task2()
+        {
+            try
+            {
+                // Vectors using different constructors
+                VectorByte vector1 = new VectorByte();
+                VectorByte vector2 = new VectorByte(3);
+                VectorByte vector3 = new VectorByte(3, 42);
+
+                // Number of vectors
+                Console.WriteLine($"Number of vectors: {VectorByte.NumVectors()}");
+
+                // Inputting elements for the second vector
+                vector2.InputElements();
+
+                // Printing elements of the second vector
+                vector2.PrintElements();
+
+                // Setting all elements of the third vector to 99
+                vector3.SetElements(99);
+
+                // Printing elements of the third vector
+                vector3.PrintElements();
+
+                // Testing unary operations
+                Console.WriteLine("Testing Unary Operations:");
+                Console.WriteLine($"Original Vector 1: {vector1[0]}");
+                vector1++;
+                Console.WriteLine($"After ++ operation: {vector1[0]}");
+                vector1--;
+                Console.WriteLine($"After -- operation: {vector1[0]}");
+
+                // Testing logical NOT operator
+                Console.WriteLine($"Vector 3 is not empty: {!vector3}");
+
+                // Testing bitwise NOT operator
+                Console.WriteLine("Testing Bitwise NOT Operator:");
+                Console.WriteLine("Original Vector 2:");
+                vector2.PrintElements();
+                VectorByte notVector2 = ~vector2;
+                Console.WriteLine("After ~ operation:");
+                notVector2.PrintElements();
+
+                // Testing binary operations
+                Console.WriteLine("Testing Binary Operations:");
+
+                Console.WriteLine("Vector 2 + Vector 3:");
+                VectorByte sumVector = vector2 + vector3;
+                sumVector.PrintElements();
+
+                Console.WriteLine("Vector 3 - Vector 2:");
+                VectorByte subVector = vector3 - vector2;
+                subVector.PrintElements();
+
+                Console.WriteLine("Vector 2 * Vector 3:");
+                VectorByte mulVector = vector2 * vector3;
+                mulVector.PrintElements();
+
+                Console.WriteLine("Vector 3 / Vector 2:");
+                VectorByte divVector = vector3 / vector2;
+                divVector.PrintElements();
+
+                Console.WriteLine("Vector 3 % Vector 2:");
+                VectorByte modVector = vector3 % vector2;
+                modVector.PrintElements();
+
+                Console.WriteLine("Vector 2 | Vector 3:");
+                VectorByte orVector = vector2 | vector3;
+                orVector.PrintElements();
+
+                Console.WriteLine("Vector 2 ^ Vector 3:");
+                VectorByte xorVector = vector2 ^ vector3;
+                xorVector.PrintElements();
+
+                Console.WriteLine("Vector 2 & Vector 3:");
+                VectorByte andVector = vector2 & vector3;
+                andVector.PrintElements();
+
+                Console.WriteLine("Vector 2 >> 1:");
+                VectorByte rightShiftVector = vector2 >> 1;
+                rightShiftVector.PrintElements();
+
+                Console.WriteLine("Vector 3 << 2:");
+                VectorByte leftShiftVector = vector3 << 2;
+                leftShiftVector.PrintElements();
+
+                // Testing comparison operators
+                Console.WriteLine("Testing Comparison Operators:");
+
+                Console.WriteLine($"Vector 2 == Vector 3: {vector2 == vector3}");
+
+                Console.WriteLine($"Vector 2 != Vector 3: {vector2 != vector3}");
+
+                Console.WriteLine($"Vector 2 > Vector 3: {vector2 > vector3}");
+
+                Console.WriteLine($"Vector 2 >= Vector 3: {vector2 >= vector3}");
+
+                Console.WriteLine($"Vector 2 < Vector 3: {vector2 < vector3}");
+
+                Console.WriteLine($"Vector 2 <= Vector 3: {vector2 <= vector3}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+
         static void Main(string[] args)
         {
-            Task1();
+            // Task1();
+            Task2();
         }
     }
 }
