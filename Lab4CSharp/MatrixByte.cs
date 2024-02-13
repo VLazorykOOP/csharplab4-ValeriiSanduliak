@@ -215,16 +215,27 @@ namespace Lab4CSharp
             return true;
         }
 
-        public static MatrixByte operator !(MatrixByte mat)
+        public static bool operator !(MatrixByte mat)
         {
+            int zeroCount = 0;
+
             for (int i = 0; i < mat.Rows; i++)
             {
                 for (int j = 0; j < mat.Columns; j++)
                 {
-                    mat[i, j] = (byte)(mat[i, j] == 0 ? 1 : 0);
+                    if (mat[i, j] == 0)
+                    {
+                        zeroCount++;
+                    }
                 }
             }
-            return mat;
+
+            if (zeroCount == mat.Rows * mat.Columns)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static MatrixByte operator ~(MatrixByte mat)

@@ -201,10 +201,10 @@ namespace Lab4CSharp
             Console.WriteLine();
 
             Console.WriteLine("Is Matrix 3 true? " + (mat3 ? "Yes" : "No"));
-            Console.WriteLine("Is Matrix 3 false? " + (!mat3 ? "Yes" : "No"));
+            Console.WriteLine("Is Matrix 3 false? " + (!mat3 ? "No" : "Yes"));
 
             Console.WriteLine("Logical NOT (!) Matrix 3:");
-            (!mat3).PrintElements();
+            Console.WriteLine(!mat3);
             Console.WriteLine();
 
             Console.WriteLine("Bitwise NOT (~) Matrix 3:");
@@ -216,7 +216,8 @@ namespace Lab4CSharp
             mat4.PrintElements();
 
             Console.WriteLine("Matrix 3 + Matrix 4:");
-            (mat3 + mat4).PrintElements();
+            MatrixByte mat5 = mat3 + mat4;
+            mat5.PrintElements();
             Console.WriteLine();
 
             Console.WriteLine("Matrix 3 - Matrix 4:");
