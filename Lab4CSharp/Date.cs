@@ -76,15 +76,15 @@ namespace Task1
             {
                 if (index == 0)
                 {
-                    return new Date(day, month, year); // Повертає поточну дату
+                    return new Date(day, month, year); 
                 }
                 else
                 {
                     int totalDays = day + (month - 1) * GetDaysInMonth(year, month);
-                    totalDays += index; // Збільшує або зменшує дату на вказану кількість днів
+                    totalDays += index; 
 
-                    int newMonth = (totalDays - 1) / 30 + 1; // Визначає новий місяць
-                    int newDay = totalDays % GetDaysInMonth(year, newMonth); // Визначає новий день
+                    int newMonth = (totalDays - 1) / 30 + 1; 
+                    int newDay = totalDays % GetDaysInMonth(year, newMonth); 
 
                     if (newDay == 0)
                     {
@@ -95,8 +95,8 @@ namespace Task1
 
                     if (newMonth > 12)
                     {
-                        newYear += (newMonth - 1) / 12; // Збільшує рік, якщо місяць більше 12
-                        newMonth = (newMonth - 1) % 12 + 1; // Визначає новий місяць у новому році
+                        newYear += (newMonth - 1) / 12; 
+                        newMonth = (newMonth - 1) % 12 + 1; 
                     }
 
                     return new Date(newDay, newMonth, newYear);
